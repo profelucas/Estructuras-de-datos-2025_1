@@ -8,5 +8,12 @@ public class Main{
         pe.apilar(10);
 
         pe.mostrar();
+
+        piladinamica pd = new piladinamica();
+
+        pd.apilar(3);
+        pd.apilar(1);
+        pd.apilar(5);
+        pd.mostrar();
     }
 }

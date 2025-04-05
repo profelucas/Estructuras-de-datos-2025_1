@@ -12,5 +12,13 @@ public class Main{
         ce.eliminar();
         System.out.println("Editado");
         ce.mostrar();
+
+
+        Coladinamica cd = new coladinamica();
+        cd.ingresar(3);
+        cd.ingresar(1);
+        cd.ingresar(10);
+
+        cd.mostrar();
     }
 }
