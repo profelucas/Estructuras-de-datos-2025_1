@@ -10,7 +10,7 @@ class piladinamica{
         if (this.cima ==null){
             this.cima=nuevo;
         }else{
-            Nodo aux=new Nodo(this.cima);
+            Nodo aux=this.cima;
             this.cima=nuevo;
             this.cima.setsiguiente(aux);
         }
@@ -20,7 +20,7 @@ class piladinamica{
         if(this.cima==null){
             System.out.println("Esta vacio");
         }else{
-            Nodo aux=new Nodo(this.cima);
+            Nodo aux=this.cima;
             this.cima=this.cima.getsiguiente();
             aux.setsiguiente(null);
         }
@@ -31,11 +31,12 @@ class piladinamica{
         if(this.cima==null){
             System.out.println("Esta vacio");
         }else{
-            Nodo aux=new Nodo(this.cima);
+            Nodo aux=this.cima;
             while(aux!=null){
                 System.out.println(aux.getelemento().toString());
                 aux=aux.getsiguiente();
             }
         }
     }
+
 }
