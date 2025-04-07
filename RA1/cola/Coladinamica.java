@@ -2,7 +2,7 @@ class Coladinamica {
     private Nodo primero;
     private Nodo ultimo;
     
-    public coladinamica(){
+    public Coladinamica(){
         this.primero=this.ultimo=null;
     }
 
@@ -11,13 +11,13 @@ class Coladinamica {
         if(this.primero==null){
             this.primero=this.ultimo=nuevo;
         }else{
-            this.ultimo.getsiguiente(nuevo);
+            this.ultimo.setsiguiente(nuevo);
             this.ultimo=nuevo;
         }
     }
 
     public void eliminar(){
-        if(this.primero=null){
+        if(this.primero==null){
             System.out.println("vacio");
         }else{
             this.primero=this.primero.getsiguiente();
@@ -28,9 +28,9 @@ class Coladinamica {
         if(this.primero==null){
             System.out.println("vacio");
         }else{
-            Nodo aux = new Nodo(this.primero);
+            Nodo aux = this.primero;
             while(aux!=null){
-                System.out.println(aux.getelemento());
+                System.out.println(aux.getelemento().toString());
                 aux=aux.getsiguiente();
             }
         }

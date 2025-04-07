@@ -1,5 +1,7 @@
 public class Main{
     public static void main(String[] args ){
+
+        System.out.println("cola estatica");
         Colaestatica ce = new Colaestatica(5);
         ce.ingresar(5);
         ce.ingresar(6);
@@ -13,8 +15,8 @@ public class Main{
         System.out.println("Editado");
         ce.mostrar();
 
-
-        Coladinamica cd = new coladinamica();
+        System.out.println("dinamica");
+        Coladinamica cd = new Coladinamica();
         cd.ingresar(3);
         cd.ingresar(1);
         cd.ingresar(10);
