@@ -20,4 +20,8 @@ class Nodo{
     public void setsiguiente(Nodo x){
         this.sig=x;
     }
+    @Override
+    public String toString(){
+        return (String) this.el;
+    }
 }
