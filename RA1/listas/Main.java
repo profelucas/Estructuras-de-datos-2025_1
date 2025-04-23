@@ -8,7 +8,10 @@ public class Main {
         ls.ingresar_medio(21, 2);
         //ls.eliminar_primero();
         ls.mostrar();
-
+        
+        System.out.println("subarreglo de tamaño 3 mas cercano a 0");
+        listaSimple sub = ls.subarreglo(3);
+        sub.mostrar();
         System.out.println("Lista Circular");
 
         ListaCircular lc = new ListaCircular();

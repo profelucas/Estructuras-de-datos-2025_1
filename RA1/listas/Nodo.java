@@ -22,6 +22,6 @@ class Nodo{
     }
     @Override
     public String toString(){
-        return (String) this.el;
+        return this.el.toString();
     }
 }
