@@ -12,7 +12,7 @@ class listaSimple{
 
     //ingresar
 
-    public void ingresar_primero(Object x){
+    public void ingresar_primero(Persona x){
       Nodo nuevo = new Nodo(x);
       if(this.primero==null){
         this.primero=this.ultimo=nuevo;
@@ -22,7 +22,7 @@ class listaSimple{
       }
     }
 
-    public void ingresar_ultimo(Object x){
+    public void ingresar_ultimo(Persona x){
       Nodo nuevo = new Nodo(x);
       if(this.ultimo==null){
         this.primero=this.ultimo=nuevo;
@@ -51,7 +51,7 @@ class listaSimple{
 
     }
 
-    public void ingresar_medio(Object x,int pos){
+    public void ingresar_medio(Persona x,int pos){
       Nodo nuevo = new Nodo (x);
 
       Nodo aux = this.primero;
@@ -69,17 +69,18 @@ class listaSimple{
       aux.setsiguiente(nuevo);
 
     }
-
+    
     public listaSimple subarreglo(int n){
-
-      /*
-       * Descripcion= recorre los subarreglos y retorna el sub arreglo cuya sumas sea cercano a 0
+    /* 
+      *
+       * Descripcion= recorre los subarreglos y retorna el sub arreglo cuya sumas sea cercano a 0 (solo de ejemplo ocupando valores INT)
        * inputs:
        *  n= tamaño del subarreglo
        * outputs:
        *  lista best= subarreglo cercano a 0.
        * 
-       */
+       *
+       * */
       listaSimple best  =  new listaSimple();
 
       int bestdistancia=100000;
@@ -93,7 +94,7 @@ class listaSimple{
         int count=0;
         //pasar por un subarreglo
         while(partida!=null && count<n){
-          suma+=(int)partida.getelemento();
+          suma+=partida.getelemento().getedad();
           partida=partida.getsiguiente();
           count++;
         }
@@ -114,18 +115,21 @@ class listaSimple{
       Nodo temp = bestpartida;
       int count=0;
       while(temp!=null && count<n){
-        best.ingresar_medio(temp, count);
+        //best.ingresar_medio(temp, count);
         temp=temp.getsiguiente();
         count++;
       }
 
       return best;
     }
+    
+
     public void mostrar(){
       Nodo aux = this.primero;
 
       while(aux!=null){
-        System.out.println(aux.getelemento().toString());
+        System.out.println(aux.getelemento().getNombre());
+        System.out.println(aux.getelemento().getedad());
         aux=aux.getsiguiente();
       }
     }

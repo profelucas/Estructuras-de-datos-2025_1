@@ -1,20 +1,20 @@
 class Nodo{
-    private Object el;
+    private Persona el;
     private Nodo sig;
 
-    public Nodo(Object x){
+    public Nodo(Persona x){
         this.el=x;
         this.sig=null;
     }
 
-    public Object getelemento(){
+    public Persona getelemento(){
         return this.el;
     }
     public Nodo getsiguiente(){
         return this.sig;
     }
 
-    public void setelemento(Object x){
+    public void setelemento(Persona x){
         this.el=x;
     }
     public void setsiguiente(Nodo x){

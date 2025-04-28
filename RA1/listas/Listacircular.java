@@ -7,7 +7,7 @@ class ListaCircular{
         this.primero=this.ultimo=null;
     }
 
-    public void Ingresar_primero(Object x){
+    public void Ingresar_primero(Persona x){
         Nodo nuevo =new Nodo(x);
         if(this.primero==null){
             this.primero=this.ultimo=nuevo;
@@ -18,7 +18,7 @@ class ListaCircular{
         this.ultimo.setsiguiente(this.primero);
 
     }
-    public void ingresar_ultimo(Object x){
+    public void ingresar_ultimo(Persona x){
         Nodo nuevo = new Nodo(x);
         if(this.ultimo==null){
             this.primero=this.ultimo=nuevo;
@@ -29,7 +29,7 @@ class ListaCircular{
         this.ultimo.setsiguiente(this.primero);
     }
 
-    public void ingresar_medio(Object x,int pos){
+    public void ingresar_medio(Persona x,int pos){
         Nodo nuevo = new Nodo (x);
   
         Nodo aux = this.primero;
@@ -72,7 +72,8 @@ class ListaCircular{
         Nodo aux= this.primero;
 
         do{
-            System.out.println(aux.getelemento());
+            System.out.println(aux.getelemento().getNombre());
+            System.out.println(aux.getelemento().getedad());
             aux=aux.getsiguiente();
         }while(aux!=this.primero);
       }

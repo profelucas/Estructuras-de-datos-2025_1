@@ -2,23 +2,23 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Lista Simple");
         listaSimple ls = new listaSimple();
-        ls.ingresar_primero(5);
-        ls.ingresar_primero(6);
-        ls.ingresar_ultimo(10);
-        ls.ingresar_medio(21, 2);
         //ls.eliminar_primero();
-        ls.mostrar();
-        
-        System.out.println("subarreglo de tamaño 3 mas cercano a 0");
-        listaSimple sub = ls.subarreglo(3);
-        sub.mostrar();
-        System.out.println("Lista Circular");
+        Persona el1=new Persona(18,"jose",20);
+        Persona el2=new Persona(25,"miguel",312);
+        ls.ingresar_primero(el1);
+        ls.ingresar_primero(el2);
 
+        ls.mostrar();
+
+        System.out.println("Lista circular");
         ListaCircular lc = new ListaCircular();
-        lc.Ingresar_primero(1);
-        lc.Ingresar_primero(2);
-        lc.Ingresar_primero(56);
-        lc.ingresar_ultimo(99);
+        Persona el3=new Persona(19,"Daniel",333);
+        Persona el4=new Persona(15,"eduardo",123);
+
+        lc.Ingresar_primero(el4);
+        lc.Ingresar_primero(el3);
         lc.mostrar();
+
+
     }
 }
