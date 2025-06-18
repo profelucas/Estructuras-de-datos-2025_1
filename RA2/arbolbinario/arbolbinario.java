@@ -88,8 +88,43 @@ class arbolbinario{
         return -1;
       }
     }
+    /*
+     * Funcion que verifica si dos arboles binarios son iguales, mediante doble pivote.
+     * inputs:
+     * arbolbinario q = arbol a comparar.
+     * 
+     * outputs:
+     * true-> si los arboles son iguales.
+     * false-> si los arboles no son iguales.
+     */
+    boolean soniguales(arbolbinario q) {
+    arbolbinario p = this;
+    boolean ifizq,ifder;
+
+    //discordiancia en las ramas
+    if (p == null || q == null) {
+        return false;
+    }
+    //datos incompatibles
+    if (p.dato != q.dato) {
+        return false;
+    }
+    //lado izquierdo
+    if (p.izq == null) {
+      ifizq = (q.izq == null) ;
+    } else {
+      ifizq= p.izq.soniguales(q.izq);
+    }
+    //lado derecho
+    if (p.der == null) {
+      ifder = (q.der == null) ;
+    } else {
+      ifder= p.der.soniguales(q.der);
+    }
+
+    return (ifizq && ifder);
+}
 
     //pruebe crear una funcion que tome los datos del arbol binario y ordenelo.(50 fichas)
-
 
 }
