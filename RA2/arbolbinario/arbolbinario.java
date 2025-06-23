@@ -98,33 +98,86 @@ class arbolbinario{
      * false-> si los arboles no son iguales.
      */
     boolean soniguales(arbolbinario q) {
-    arbolbinario p = this;
-    boolean ifizq,ifder;
+      arbolbinario p = this;
+      boolean ifizq,ifder;
 
-    //discordiancia en las ramas
-    if (p == null || q == null) {
+      //discordiancia en las ramas
+      if (p == null || q == null) {
+          return false;
+      }
+      //datos incompatibles
+      if (p.dato != q.dato) {
         return false;
-    }
-    //datos incompatibles
-    if (p.dato != q.dato) {
-        return false;
-    }
-    //lado izquierdo
-    if (p.izq == null) {
-      ifizq = (q.izq == null) ;
-    } else {
-      ifizq= p.izq.soniguales(q.izq);
-    }
-    //lado derecho
-    if (p.der == null) {
-      ifder = (q.der == null) ;
-    } else {
-      ifder= p.der.soniguales(q.der);
-    }
+      }
+      //lado izquierdo
+      if (p.izq == null) {
+        ifizq = (q.izq == null) ;
+      } else {
+        ifizq= p.izq.soniguales(q.izq);
+      }
+      //lado derecho
+      if (p.der == null) {
+        ifder = (q.der == null) ;
+      } else {
+        ifder= p.der.soniguales(q.der);
+      }
 
-    return (ifizq && ifder);
-}
+      return (ifizq && ifder);
+  }
 
     //pruebe crear una funcion que tome los datos del arbol binario y ordenelo.(50 fichas)
 
+    /*
+     * Funcion que permite buscar en el arbol binario el par de nodos cuya suma sea igual a un valor ingresado K.
+     * inputs :
+     * k= valor entera que se evaluara.
+     * outputs:
+     * true= se encontro.
+     * false= no se encontro.
+     * 
+     */
+    public boolean sumarvalores(int k){
+      hash lista = new hash(100);
+      return buscarsuma(this, k, lista);
+    }
+
+    public boolean buscarsuma(arbolbinario arbol, int k, hash lista){
+      //se esta trabajando de manera recursiva
+
+      //condicion de termino
+      if (arbol == null) return false;
+
+
+      int complemento = k -arbol.getdato();
+      if (lista.existe(complemento)){
+        System.out.println(arbol.getdato()+" + "+ complemento +" = " + k);
+        return true;
+      }
+      //muy escondido pero se esta haciendo una busqueda preorden.
+      lista.ingresar(arbol.getdato());
+      return buscarsuma(arbol.getizq(), k, lista) || buscarsuma(arbol.getder(), k, lista); 
+    }
+
+
+    /* 
+     * funcion dicha en clases que toma el arbol y cuenta la cantidad de valores que tiene.
+     * 
+     * 
+     */
+
+     public void contaryguardar(){
+      hash lista = new hash(100);
+      recorrereinsertar(this,lista);
+      System.out.println("valores del arbol y su cantidad de apariciones");
+      lista.mostrar();
+     }
+
+     public void recorrereinsertar(arbolbinario arbol, hash lista){
+      if (arbol == null){
+        return;
+      }
+      lista.ingresar(arbol.dato);
+      recorrereinsertar(arbol.getizq(), lista);
+      recorrereinsertar(arbol.getder(), lista);
+     }
 }
